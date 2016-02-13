@@ -2,7 +2,9 @@ class SendMessageJob < ChatJob
   queue_as :default
  
   def perform(content)
-    message = Message.create! content: 'oi', from: 'pepe'
+    pepe = Pepe::Interaction.new
+    answer = pepe.answer(content)
+    message = Message.create! content: answer, from: 'pepe'
     broadcast(message)
   end
 end

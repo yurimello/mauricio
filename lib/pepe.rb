@@ -1,0 +1,2 @@
+class Pepe
+end
