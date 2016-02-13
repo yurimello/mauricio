@@ -8,3 +8,4 @@
 
 Interaction.create question: 'oi!?', answer: 'oi! tudo em riba?'
 Interaction.create question: 'tudo sim,? ?e com (voce|vc|você)\??', answer: 'numa nice ;)'
+Interaction.create question: '.*restaurante(.*)(n[ao]*)(.*)', answer: 'hmmm voce quer um restaurante', question_type: 'restaurant_api', captures: {1: 'cuisine', 3: 'neighborhood'}
