@@ -1,0 +1,18 @@
+<li class="media message">
+
+  <div class="media-body">
+
+    <div class="media">
+      <a class="pull-left" href="#">
+        <img class="media-object img-circle " src="assets/img/user.png" />
+      </a>
+      <div class="media-body" >
+        <%= message.content %>
+        <br />
+        <small class="text-muted">enviado em: <%= message.created_at.strftime("%d/%m/%Y às %H:%M:%S") %></small>
+        <hr />
+      </div>
+    </div>
+
+  </div>
+</li>
