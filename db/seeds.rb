@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Interaction.delete_all
 Interaction.create question: 'oi!?', answer: 'oi! tudo em riba?'
 Interaction.create question: 'tudo sim,? ?e com (voce|vc|você)\??', answer: 'numa nice ;)'
-Interaction.create question: '.*restaurante(.*)(n[ao]*)(.*)', answer: 'hmmm voce quer um restaurante', question_type: 'restaurant_api', captures: {1: 'cuisine', 3: 'neighborhood'}
+Interaction.create question: '.*restaurante(.*)(n[ao]*)(.*)', answer: 'hmmm voce quer um restaurante', question_type: 'restaurant_api', captures: {"1" => 'cuisine', "3" => 'neighborhood'}
