@@ -1,3 +1,3 @@
 class Interaction < ApplicationRecord
-  serialize :captures
+  serialize :captures, Hash
 end
