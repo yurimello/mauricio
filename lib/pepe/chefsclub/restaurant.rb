@@ -20,7 +20,7 @@ class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
     end
 
     def translate_neighborhood_slang(slang)
-      neighborhood_slang = Chefsclub::NeighborhoodSlang.where("slang ILIKE '#{slang}'").last
+      neighborhood_slang = Chefsclub::NeighborhoodSlang.find_by_slang(slang.downcase)
       if neighborhood_slang
         neighborhood_slang.translated
       else
@@ -29,7 +29,7 @@ class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
     end
 
     def translate_cuisine_slang(slang)
-      cuisine_slang = Chefsclub::CuisineSlang.where("slang ILIKE '#{slang}'").last
+      cuisine_slang = Chefsclub::CuisineSlang.find_by_slang(slang.downcase)
       if cuisine_slang
         cuisine_slang.translated
       else
