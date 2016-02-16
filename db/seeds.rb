@@ -10,6 +10,21 @@ Interaction.delete_all
 Interaction.create question: 'oi!?', answer: 'oi! tudo em riba?', question_type: 'basic_answer'
 Interaction.create question: 'tudo sim,? ?e com (voce|vc|você)\??', answer: 'numa nice ;)', question_type: 'basic_answer'
 Interaction.create question: 'conhece o (hugo|huguinho)\??', answer: 'um boila?', question_type: 'basic_answer'
-Interaction.create question: '.*restaurante(\s+.+)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisine', "4" => 'neighborhood'}
+Interaction.create question: '.*restaurante(\s+.+)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
-Interaction.create question: '.*restaurante(\s+.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisine'}
+Interaction.create question: '.*restaurante(\s+.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
+
+Chefsclub::NeighborhoodSlang.delete_all
+Chefsclub::NeighborhoodSlang.create slang: "barra", translated: "Barra da Tijuca"
+Chefsclub::NeighborhoodSlang.create slang: "recreio", translated: "Recreio dos Bandeirantes"
+Chefsclub::NeighborhoodSlang.create slang: "jpa", translated: "Jacarepagua"
+
+Chefsclub::CuisineSlang.delete_all
+Chefsclub::CuisineSlang.create slang: "japones", translated: "japonesa"
+Chefsclub::CuisineSlang.create slang: "japa", translated: "japonesa"
+Chefsclub::CuisineSlang.create slang: "churrasco", translated: "churrascaria"
+Chefsclub::CuisineSlang.create slang: "carne", translated: "churrascaria"
+Chefsclub::CuisineSlang.create slang: "hamburguer", translated: "hamburgueria"
+Chefsclub::CuisineSlang.create slang: "frances", translated: "francesa"
+Chefsclub::CuisineSlang.create slang: "portuges", translated: "portuguesa"
+Chefsclub::CuisineSlang.create slang: "mexicano", translated: "mexicana"
