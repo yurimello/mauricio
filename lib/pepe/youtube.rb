@@ -18,6 +18,7 @@ class Pepe::Youtube < Pepe::Base
     def random_video
       rand(@playlist["items"].size - 1)
     end
+    
     def get_playlist
       uri = URI(api_uri)
       response = Net::HTTP.get(uri)
