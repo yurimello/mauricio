@@ -8,11 +8,14 @@
 
 Interaction.delete_all
 Interaction.create question: 'oi!?', answer: 'oi! tudo em riba?', question_type: 'basic_answer'
-Interaction.create question: 'tudo sim,? ?e com (voce|vc|você)\??', answer: 'numa nice ;)', question_type: 'basic_answer'
-Interaction.create question: 'conhece o (hugo|huguinho)\??', answer: 'um boila?', question_type: 'basic_answer'
+Interaction.create question: 'tudo( sim,?)? ?e com (voce|vc|você)\??', answer: 'numa nice ;)', question_type: 'basic_answer'
 Interaction.create question: '.*restaurante(\s+.+)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
 Interaction.create question: '.*restaurante(\s+.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
+Interaction.create question: '.*(japa)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
+Interaction.create question: '.*(japa)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
+Interaction.create question: '.*(musica|video)', answer: 'hmmm voce quer um video', question_type: 'youtube'
+
 
 Chefsclub::NeighborhoodSlang.delete_all
 Chefsclub::NeighborhoodSlang.create slang: "barra", translated: "Barra da Tijuca"
