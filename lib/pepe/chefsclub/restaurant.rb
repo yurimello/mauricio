@@ -1,6 +1,5 @@
 class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
   def answer
-    byebug
     @restaurants = get_restaurant
     restaurant = @restaurants["hits"][random_restaurant]
     if restaurant

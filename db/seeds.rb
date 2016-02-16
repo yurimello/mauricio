@@ -9,9 +9,7 @@
 Interaction.delete_all
 Interaction.create question: 'oi!?', answer: 'oi! tudo em riba?', question_type: 'basic_answer'
 Interaction.create question: 'tudo( sim,?)? ?e com (voce|vc|você)\??', answer: 'numa nice ;)', question_type: 'basic_answer'
-Interaction.create question: '.*restaurante(\s+.+)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
-Interaction.create question: '.*restaurante(\s+.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
 Interaction.create question: '.*restaurante', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
 Interaction.create question: '.*(musica|video)', answer: 'hmmm voce quer um video', question_type: 'youtube'
 
@@ -44,6 +42,7 @@ Chefsclub::CuisineSlang.generate_interaction_to_all
 Modifier.delete_all
 Modifier.create expression: '(namorad(o|a))', captures: {"1" => 'occasion'}, modifier_type: 'string', value: 'jantar-romantico'
 Modifier.create expression: '(jantar com (a|o) namorad(a|o))', captures: {"1" => 'occasion'}, modifier_type: 'string', value: 'jantar-romantico'
+
 Modifier.create expression: '(jantar)', captures: {"1" => 'discounttime'}, modifier_type: 'time', value: 'night'
 Modifier.create expression: '(amanha)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'tomorrow'
 Modifier.create expression: '(hoje|hj)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'today'
@@ -56,3 +55,14 @@ Modifier.create expression: '(quinta(-feira)?)', captures: {"1" => 'discountime'
 Modifier.create expression: '(sexta(-feira)?)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_friday'
 Modifier.create expression: '(sabado)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_saturday'
 Modifier.create expression: '(domingo)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_sunday'
+
+Modifier.create expression: '(um|1) restaurante', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'one'
+Modifier.create expression: '(dois|2) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'two'
+Modifier.create expression: '(tres|3) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'three'
+Modifier.create expression: '(quatro|4) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'four'
+Modifier.create expression: '(cinco|5) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'five'
+Modifier.create expression: '(seis|6) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'six'
+Modifier.create expression: '(sete|7) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'seven'
+Modifier.create expression: '(oito|8) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'eight'
+Modifier.create expression: '(nove|9) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'nine'
+Modifier.create expression: '(dez|10) restaurantes', captures: {"1" => 'size'}, modifier_type: 'integer', value: 'ten'
