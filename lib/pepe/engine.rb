@@ -1,4 +1,4 @@
-class Pepe::Interaction < Pepe::Base
+class Pepe::Engine < Pepe::Base
   def initialize
     @interactions = load_interactions
   end

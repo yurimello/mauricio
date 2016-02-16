@@ -7,7 +7,6 @@ class Pepe::Base
 
   def answer
     {"content" => @interaction.answer, "partial" => "messages/message"}
-    
   end
 
   private 

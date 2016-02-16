@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expression: MyText
+  modifier_type: MyString
+  captures: 
+  value: MyString
+
+two:
+  expression: MyText
+  modifier_type: MyString
+  captures: 
+  value: MyString

@@ -40,3 +40,19 @@ Chefsclub::CuisineSlang.create slang: "ceviche", translated: "peruana"
 
 
 Chefsclub::CuisineSlang.generate_interaction_to_all
+
+Modifier.delete_all
+Modifier.create expression: '(namorad(o|a))', captures: {"1" => 'occasion'}, modifier_type: 'string', value: 'jantar-romantico'
+Modifier.create expression: '(jantar com (a|o) namorad(a|o))', captures: {"1" => 'occasion'}, modifier_type: 'string', value: 'jantar-romantico'
+Modifier.create expression: '(jantar)', captures: {"1" => 'discounttime'}, modifier_type: 'time', value: 'night'
+Modifier.create expression: '(amanha)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'tomorrow'
+Modifier.create expression: '(hoje|hj)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'today'
+Modifier.create expression: '(agora)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'now'
+Modifier.create expression: '(semana (q|que) (vem|vm))', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_week'
+Modifier.create expression: '(segunda(-feira)?)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_monday'
+Modifier.create expression: '(terca(-feira)?)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_tuesday'
+Modifier.create expression: '(quarta(-feira)?)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_wednesday'
+Modifier.create expression: '(quinta(-feira)?)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_thrusday'
+Modifier.create expression: '(sexta(-feira)?)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_friday'
+Modifier.create expression: '(sabado)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_saturday'
+Modifier.create expression: '(domingo)', captures: {"1" => 'discountime'}, modifier_type: 'time', value: 'next_sunday'
