@@ -6,7 +6,7 @@ class Pepe::Base
   end
 
   def answer
-    {"content" => @interaction.answer, "partial" => "message/messages"}
+    {"content" => @interaction.answer, "partial" => "messages/message"}
     
   end
 

@@ -15,6 +15,10 @@ Interaction.create question: '.*restaurante(\s+.+)', answer: 'hmmm voce quer um 
 Interaction.create question: '.*restaurante', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
 Interaction.create question: '.*(japa)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
 Interaction.create question: '.*(japa)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
+Interaction.create question: '.*(churrascaria)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
+Interaction.create question: '.*(churrascaria)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
+Interaction.create question: '.*(churrasco)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
+Interaction.create question: '.*(churrasco)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
 Interaction.create question: '.*(musica|video)', answer: 'hmmm voce quer um video', question_type: 'youtube'
 
 
