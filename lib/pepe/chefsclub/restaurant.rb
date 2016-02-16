@@ -3,13 +3,21 @@ class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
     @restaurants = get_restaurant
     restaurant = @restaurants["hits"][random_restaurant]
     if restaurant
-      restaurant["_source"]["name"]
+      restaurant = restaurant["_source"]
+      restaurant["url"] = "#{domain}#{restaurant['url']}"
+      restaurant["content"] = restaurant["name"]
+      restaurant["partial"] = partial
+      restaurant
     else
-      "descuple não consegui encontrar"
+      {content: "descuple, não consegui encontrar", partial: 'messages/message'}
     end
   end
 
   private
+
+    def partial
+      "chefsclub/restaurant"
+    end
 
     def translate_neighborhood_slang(slang)
       neighborhood_slang = Chefsclub::NeighborhoodSlang.where("slang ILIKE '#{slang}'").last

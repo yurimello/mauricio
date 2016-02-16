@@ -3,7 +3,8 @@ class ReceiveMessageJob < ChatJob
  
   def perform(content)
     message = Message.create! content: content, from: 'me'
-    broadcast(message)
+    answer = {"content" => content, "partial" => 'messages/message'}
+    broadcast(message, answer)
     SendMessageJob.perform_later content
   end
 end

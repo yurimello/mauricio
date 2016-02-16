@@ -4,7 +4,7 @@ class SendMessageJob < ChatJob
   def perform(content)
     pepe = Pepe::Interaction.new
     answer = pepe.answer(content)
-    message = Message.create! content: answer, from: 'pepe'
-    broadcast(message)
+    message = Message.create! content: answer["content"], from: 'pepe'
+    broadcast(message, answer)
   end
 end
