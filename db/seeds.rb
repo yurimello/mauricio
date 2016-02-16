@@ -20,6 +20,7 @@ Chefsclub::NeighborhoodSlang.delete_all
 Chefsclub::NeighborhoodSlang.create slang: "barra", translated: "Barra da Tijuca"
 Chefsclub::NeighborhoodSlang.create slang: "recreio", translated: "Recreio dos Bandeirantes"
 Chefsclub::NeighborhoodSlang.create slang: "jpa", translated: "Jacarepagua"
+Chefsclub::NeighborhoodSlang.create slang: "jb", translated: "Jardim Botanico"
 
 Chefsclub::CuisineSlang.delete_all
 Chefsclub::CuisineSlang.create slang: "japones", translated: "japonesa"
@@ -30,6 +31,9 @@ Chefsclub::CuisineSlang.create slang: "hamburguer", translated: "hamburgueria"
 Chefsclub::CuisineSlang.create slang: "frances", translated: "francesa"
 Chefsclub::CuisineSlang.create slang: "portuges", translated: "portuguesa"
 Chefsclub::CuisineSlang.create slang: "mexicano", translated: "mexicana"
+Chefsclub::CuisineSlang.create slang: "nachos", translated: "mexicana"
+Chefsclub::CuisineSlang.create slang: "burritos", translated: "mexicana"
+Chefsclub::CuisineSlang.create slang: "tacos", translated: "mexicana"
 Chefsclub::CuisineSlang.create slang: "pizza", translated: "pizzaria"
 Chefsclub::CuisineSlang.create slang: "peruano", translated: "peruana"
 Chefsclub::CuisineSlang.create slang: "ceviche", translated: "peruana"
