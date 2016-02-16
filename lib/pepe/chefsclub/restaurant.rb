@@ -1,0 +1,43 @@
+class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
+  def answer
+    @restaurants = get_restaurant
+    restaurant = @restaurants["hits"][random_restaurant]
+    if restaurant
+      restaurant["_source"]["name"]
+    else
+      "descuple não consegui encontrar"
+    end
+  end
+
+  private
+
+    def random_restaurant
+      rand(@restaurants["hits"].size - 1) 
+    end
+
+    def get_restaurant
+      request_params = build_request
+      puts request_params
+      uri = URI(request_params)
+      response = Net::HTTP.get(uri)
+      JSON.parse response
+    end
+    
+    def build_request
+      "#{domain}#{endpoint}?#{build_params}"
+    end
+
+    def build_params
+      processed_params = process_captures
+      processed_params["city"] = default_city
+      to_query(processed_params)
+    end
+
+    def endpoint
+      "/api/v2/mobile/search"
+    end
+
+    def default_city
+      "rio-de-janeiro"
+    end
+end

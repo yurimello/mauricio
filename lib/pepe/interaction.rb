@@ -6,8 +6,11 @@ class Pepe::Interaction < Pepe::Base
   def answer(question)
     @interactions.each do |interaction|
       question_regex = to_regex(interaction.question)
-      if question_regex.match(question)
-        return interaction.answer
+      question_match = question_regex.match(question)
+      if question_match
+        question_class = Interaction::QUESTION_TYPES[interaction.question_type]
+        interaction_controller = question_class.new(interaction, question_match)
+        return interaction_controller.answer
       end
     end
     return 'não entendi isso...'
