@@ -13,12 +13,6 @@ Interaction.create question: '.*restaurante(\s+.+)(\s(no|na|em)\s)(.+)', answer:
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
 Interaction.create question: '.*restaurante(\s+.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
 Interaction.create question: '.*restaurante', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
-Interaction.create question: '.*(japa)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
-Interaction.create question: '.*(japa)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
-Interaction.create question: '.*(churrascaria)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
-Interaction.create question: '.*(churrascaria)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
-Interaction.create question: '.*(churrasco)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
-Interaction.create question: '.*(churrasco)(\s(no|na|em)\s)(.+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
 Interaction.create question: '.*(musica|video)', answer: 'hmmm voce quer um video', question_type: 'youtube'
 
 
@@ -39,3 +33,6 @@ Chefsclub::CuisineSlang.create slang: "mexicano", translated: "mexicana"
 Chefsclub::CuisineSlang.create slang: "pizza", translated: "pizzaria"
 Chefsclub::CuisineSlang.create slang: "peruano", translated: "peruana"
 Chefsclub::CuisineSlang.create slang: "ceviche", translated: "peruana"
+
+
+Chefsclub::CuisineSlang.generate_interaction_to_all

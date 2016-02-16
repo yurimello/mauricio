@@ -9,7 +9,7 @@ class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
       restaurant["partial"] = partial
       restaurant
     else
-      {content: "descuple, não consegui encontrar", partial: 'messages/message'}
+      {"content" => "descuple, não consegui encontrar", "partial" => 'messages/message'}
     end
   end
 
