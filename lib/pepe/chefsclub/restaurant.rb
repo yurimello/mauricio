@@ -43,7 +43,7 @@ class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
 
     def get_restaurant
       request_params = build_request
-      puts request_params
+      puts "!!!!!!!  #{request_params} !!!!!!"
       uri = URI(request_params)
       response = Net::HTTP.get(uri)
       JSON.parse response

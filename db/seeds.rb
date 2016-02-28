@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Interaction.delete_all
-Interaction.create question: 'oi!?', answer: 'oi! tudo em riba?', question_type: 'basic_answer'
+Interaction.create question: '^oi!?$', answer: 'oi! tudo em riba?', question_type: 'basic_answer'
 Interaction.create question: 'tudo( sim,?)? ?e com (voce|vc|você)\??', answer: 'numa nice ;)', question_type: 'basic_answer'
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)([a-zA-Z]+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
 Interaction.create question: '.*restaurante', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
@@ -54,13 +54,13 @@ Modifier.create expression: 'amanh(a|ã)', modifier_type: 'time', method: 'tomor
 Modifier.create expression: '(hoje|hj)', modifier_type: 'time', method: 'today'
 Modifier.create expression: 'agora', modifier_type: 'time', method: 'now'
 Modifier.create expression: 'semana (q|que) (vem|vm)', modifier_type: 'time', method: 'next_week'
-Modifier.create expression: 'segunda(-feira)?', modifier_type: 'time', method: 'next_monday'
-Modifier.create expression: 'terca(-feira)?', modifier_type: 'time', method: 'next_tuesday'
-Modifier.create expression: 'quarta(-feira)?', modifier_type: 'time', method: 'next_wednesday'
-Modifier.create expression: 'quinta(-feira)?', modifier_type: 'time', method: 'next_thrusday'
-Modifier.create expression: 'sexta(-feira)?', modifier_type: 'time', method: 'next_friday'
-Modifier.create expression: 'sabado', modifier_type: 'time', method: 'next_saturday'
-Modifier.create expression: 'domingo', modifier_type: 'time', method: 'next_sunday'
+Modifier.create expression: 'segunda(-feira)?', modifier_type: 'time', method: 'monday'
+Modifier.create expression: 'terca(-feira)?', modifier_type: 'time', method: 'tuesday'
+Modifier.create expression: 'quarta(-feira)?', modifier_type: 'time', method: 'wednesday'
+Modifier.create expression: 'quinta(-feira)?', modifier_type: 'time', method: 'thrusday'
+Modifier.create expression: 'sexta(-feira)?', modifier_type: 'time', method: 'friday'
+Modifier.create expression: 'sabado', modifier_type: 'time', method: 'saturday'
+Modifier.create expression: 'domingo', modifier_type: 'time', method: 'sunday'
 
 Modifier.create expression: '(um|1) restaurante', modifier_type: 'integer', method: 'one'
 Modifier.create expression: '(dois|2) restaurantes', modifier_type: 'integer', method: 'two'

@@ -5,7 +5,6 @@ class Pepe::InteractionModifier  < Pepe::Base
 
   def capture_modifiers(expression)
     captures = {}
-    byebug
     @modifiers.each do |modifier|
       modifier_regex = to_regex(modifier.expression)
       modifier_match = modifier_regex.match(expression)
