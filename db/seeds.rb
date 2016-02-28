@@ -12,6 +12,10 @@ Interaction.create question: 'tudo( sim,?)? ?e com (voce|vc|você)\??', answer: 
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)([a-zA-Z]+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
 Interaction.create question: '.*restaurante', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
 Interaction.create question: '.*(musica|video)', answer: 'hmmm voce quer um video', question_type: 'youtube'
+parent = Interaction.create question: '.*minha assinatura (es)?ta valida\??', answer: 'me diga o seu cpf para eu poder verificar', question_type: 'basic_answer'
+Interaction.create question: '.*(\d{11}).*', answer: 'esta valida sim', question_type: 'basic_answer', parent_id: parent.id
+parent = Interaction.create question: '.*(\d{11}).*', answer: 'quer saber se sua assinatura está valida?', question_type: 'basic_answer'
+Interaction.create question: '^(s(im)?|yep)$', answer: 'está expirada', question_type: 'basic_answer', parent_id: parent.id
 
 
 Chefsclub::NeighborhoodSlang.delete_all

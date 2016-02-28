@@ -13,7 +13,12 @@ class Pepe::Base
 
   private 
     def load_interactions
-      @interactions ||= Interaction.all
+      @interactions ||= Interaction.where(parent_id: nil)
+    end
+
+    def load_children_interactions
+      interaction_id = $redis.get("interaction_id")
+      @children_interactions ||= Interaction.where(parent_id: interaction_id)
     end
 
     def load_modifiers

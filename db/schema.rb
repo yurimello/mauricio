@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228010217) do
+ActiveRecord::Schema.define(version: 20160228170531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160228010217) do
     t.datetime "updated_at",    null: false
     t.string   "question_type"
     t.text     "captures"
+    t.integer  "parent_id"
   end
 
   create_table "messages", force: :cascade do |t|
