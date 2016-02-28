@@ -9,7 +9,7 @@ class Pepe::Engine < Pepe::Base
       question_match = question_regex.match(question)
       if question_match
         question_class = Interaction::QUESTION_TYPES[interaction.question_type]
-        interaction_controller = question_class.new(interaction, question_match)
+        interaction_controller = question_class.new(interaction, question_match, question)
         return interaction_controller.answer
       end
     end

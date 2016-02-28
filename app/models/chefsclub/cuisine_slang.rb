@@ -4,7 +4,7 @@ class Chefsclub::CuisineSlang < ApplicationRecord
     cuisines_to_find = cuisines[0..4].join("|")
     cuisines = cuisines.join("|")
     Interaction.where("question LIKE '%#{cuisines_to_find}%'").delete_all
-    Interaction.create question: ".*(#{cuisines})(\s(no|na|em)\s)(.+)", answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
+    Interaction.create question: ".*(#{cuisines})(\s(no|na|em)\s)([a-zA-Z]+)", answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines', "4" => 'neighborhood'}
     Interaction.create question: ".*(#{cuisines})", answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"1" => 'cuisines'}
   end
 

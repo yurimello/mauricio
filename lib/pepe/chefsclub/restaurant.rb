@@ -58,6 +58,7 @@ class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
       processed_params["city"] = default_city
       processed_params["neighborhood"] = translate_neighborhood_slang(processed_params["neighborhood"]) if processed_params["neighborhood"]
       processed_params["cuisines"] = translate_cuisine_slang(processed_params["cuisines"]) if processed_params["cuisines"]
+      processed_params.merge!(@modifier.capture_modifiers(@question))
       to_query(processed_params)
     end
 

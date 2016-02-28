@@ -1,8 +1,10 @@
 class Pepe::Base
 
-  def initialize(interaction, match)
+  def initialize(interaction, match, question)
     @interaction = interaction
     @match = match
+    @modifier = Pepe::InteractionModifier.new
+    @question = question
   end
 
   def answer
@@ -12,6 +14,10 @@ class Pepe::Base
   private 
     def load_interactions
       @interactions ||= Interaction.all
+    end
+
+    def load_modifiers
+      @modifiers ||= Modifier.all
     end
 
     def to_regex(str)
