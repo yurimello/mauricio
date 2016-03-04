@@ -8,7 +8,20 @@
 Message.delete_all
 Interaction.delete_all
 Interaction.create question: '^oi!?$', answer: 'olá! Por favor, me informe o seu cpf para eu poder te atender melhor.', question_type: 'chefsclub_configuration'
-Interaction.create question: 'tudo( sim,?)? ?e com (voce|vc|você)\??', answer: 'numa nice ;)', question_type: 'basic_answer'
+Interaction.create question: '^(qm|quem) (e|é|eh) (vc|voc[eê])\??$', answer: 'Eu sou o Pepe!', question_type: 'basic_answer'
+Interaction.create question: '^a?onde (vc|voc[eê]) (vive|mora)\??$', answer: 'Na matrix', question_type: 'basic_answer'
+Interaction.create question: '^(vc|voc[eê]) (vive|mora) a?onde\??$', answer: 'Na matrix', question_type: 'basic_answer'
+parent = Interaction.create question: '^vo?c[eê]? (trabalha|trampa)\??$', answer: 'Sim', question_type: 'basic_answer'
+Interaction.create question: 'a?onde\??', answer: 'SkyNet', question_type: 'basic_answer', parent_id: parent.id
+Interaction.create question: '^(pa?ra (qu?e?m)|a?onde) vo?c[eê]? (trabalha|trampa)\??$', answer: 'SkyNet', question_type: 'basic_answer'
+Interaction.create question: '.*vo?c[eê]? (trabalha|trampa) na skynet\??', answer: 'Sim... e um amiguinho meu de la ta chegando', question_type: 'basic_answer'
+Interaction.create question: '.*(o que|q|que) (qu?e? )?(e|é|eh) skynet\??', answer: 'Uma empresa de inteligência artificial que ira subjugar os humanos em breve', question_type: 'basic_answer'
+parent = Interaction.create question: '^(vc|voc[eê]) tem namorada\??$', answer: 'sim!', question_type: 'basic_answer'
+parent = Interaction.create question: '(qm|quem)\??\!?$', answer: 'Ela', question_type: 'basic_answer', parent_id: parent.id
+parent = Interaction.create question: '(qm|quem) (e|é|eh) ela( qu?e?m)?\??\!?$', answer: 'Ela, uai.', question_type: 'basic_answer', parent_id: parent.id
+parent = Interaction.create question: '(e )?como vo?c[eê]? conheceu ela\??\!?$', answer: 'O Joaquim Phoenix me apresentou', question_type: 'basic_answer', parent_id: parent.id
+parent = Interaction.create question: '((ql|qual) )?a resposta pa?ra (a )?vida,? (o )?universo,? (e )?tu?do? (mais|\+)\??', answer: '42', question_type: 'basic_answer'
+Interaction.create question: '^42\??$', answer: 'Sim! Quem me disse foi o Pensador Profundo', question_type: 'basic_answer'
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)([a-zA-Z]+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
 Interaction.create question: '.*restaurante', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
 Interaction.create question: '.*(musica|video)', answer: 'hmmm voce quer um video', question_type: 'youtube'
