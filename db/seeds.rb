@@ -5,17 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Message.delete_all
 Interaction.delete_all
-Interaction.create question: '^oi!?$', answer: 'oi! tudo em riba?', question_type: 'basic_answer'
+Interaction.create question: '^oi!?$', answer: 'olá! Por favor, me informe o seu cpf para eu poder te atender melhor.', question_type: 'chefsclub_configuration'
 Interaction.create question: 'tudo( sim,?)? ?e com (voce|vc|você)\??', answer: 'numa nice ;)', question_type: 'basic_answer'
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)([a-zA-Z]+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
 Interaction.create question: '.*restaurante', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
 Interaction.create question: '.*(musica|video)', answer: 'hmmm voce quer um video', question_type: 'youtube'
-parent = Interaction.create question: '.*minha assinatura (es)?ta valida\??', answer: 'me diga o seu cpf para eu poder verificar', question_type: 'basic_answer'
-Interaction.create question: '.*(\d{11}).*', answer: 'esta valida sim', question_type: 'basic_answer', parent_id: parent.id
-parent = Interaction.create question: '.*(\d{11}).*', answer: 'quer saber se sua assinatura está valida?', question_type: 'basic_answer'
-Interaction.create question: '^(s(im)?|yep)$', answer: 'está expirada', question_type: 'basic_answer', parent_id: parent.id
+parent = Interaction.create question: '.*minha assinatura (es)?ta valida\??', answer: 'me diga o seu cpf para eu poder verificar', question_type: 'chefsclub_subscription_information'
+Interaction.create question: '.*(\d{11}).*', answer: 'esta valida sim', question_type: 'chefsclub_subscription_information', parent_id: parent.id, captures: {"1" => 'identification'}
+Interaction.create question: '.*(\d{11}).*', answer: 'quer saber se sua assinatura está valida?', question_type: 'chefsclub_configuration', captures: {"1" => 'identification'}
 
 
 Chefsclub::NeighborhoodSlang.delete_all
