@@ -1,4 +1,4 @@
-class Pepe::Engine < Pepe::Base
+class Mauricio::Engine < Mauricio::Base
   def initialize
     load_interactions
     load_children_interactions

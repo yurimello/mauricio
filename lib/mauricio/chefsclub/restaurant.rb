@@ -1,4 +1,4 @@
-class Pepe::Chefsclub::Restaurant < Pepe::Chefsclub
+class Mauricio::Chefsclub::Restaurant < Mauricio::Chefsclub
   def answer
     @restaurants = get_restaurant
     restaurant = @restaurants["hits"][random_restaurant]

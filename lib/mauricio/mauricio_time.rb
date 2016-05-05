@@ -1,4 +1,4 @@
-class Pepe::PepeTime
+class Mauricio::MauricioTime
   def initialize
     @field = "discounttime"
   end

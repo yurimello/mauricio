@@ -1,4 +1,4 @@
-class Pepe::Chefsclub::Configuration < Pepe::Chefsclub::Subscription
+class Mauricio::Chefsclub::Configuration < Mauricio::Chefsclub::Subscription
   
   def answer
     params = build_params

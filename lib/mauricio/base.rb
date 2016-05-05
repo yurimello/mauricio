@@ -1,9 +1,9 @@
-class Pepe::Base
+class Mauricio::Base
 
   def initialize(interaction, match, question)
     @interaction = interaction
     @match = match
-    @modifier = Pepe::InteractionModifier.new
+    @modifier = Mauricio::InteractionModifier.new
     @question = question
   end
 

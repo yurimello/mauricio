@@ -8,7 +8,7 @@
 Message.delete_all
 Interaction.delete_all
 Interaction.create question: '^oi!?$', answer: 'olá! Por favor, me informe o seu cpf para eu poder te atender melhor.', question_type: 'chefsclub_configuration'
-Interaction.create question: '^(qm|quem) (e|é|eh) (vc|voc[eê])\??$', answer: 'Eu sou o Pepe!', question_type: 'basic_answer'
+Interaction.create question: '^(qm|quem) (e|é|eh) (vc|voc[eê])\??$', answer: 'Eu sou o Mauricio!', question_type: 'basic_answer'
 Interaction.create question: '^a?onde (vc|voc[eê]) (vive|mora)\??$', answer: 'Na matrix', question_type: 'basic_answer'
 Interaction.create question: '^(vc|voc[eê]) (vive|mora) a?onde\??$', answer: 'Na matrix', question_type: 'basic_answer'
 parent = Interaction.create question: '^vo?c[eê]? (trabalha|trampa)\??$', answer: 'Sim', question_type: 'basic_answer'

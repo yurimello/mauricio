@@ -1,4 +1,4 @@
-class Pepe::Youtube < Pepe::Base
+class Mauricio::Youtube < Mauricio::Base
   
   def answer
     video = get_video

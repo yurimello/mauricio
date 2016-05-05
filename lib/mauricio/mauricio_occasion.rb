@@ -1,4 +1,4 @@
-class Pepe::PepeOccasion 
+class Mauricio::MauricioOccasion 
   def initialize
     @field = "occasion"
   end

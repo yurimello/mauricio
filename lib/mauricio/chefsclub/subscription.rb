@@ -1,4 +1,4 @@
-class Pepe::Chefsclub::Subscription < Pepe::Chefsclub
+class Mauricio::Chefsclub::Subscription < Mauricio::Chefsclub
   
   def ansewer
     params = build_params

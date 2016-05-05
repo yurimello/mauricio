@@ -1,2 +1,2 @@
-class Pepe
+class Mauricio
 end

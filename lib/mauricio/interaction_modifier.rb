@@ -1,4 +1,4 @@
-class Pepe::InteractionModifier  < Pepe::Base
+class Mauricio::InteractionModifier  < Mauricio::Base
   def initialize
     load_modifiers
   end
@@ -9,7 +9,7 @@ class Pepe::InteractionModifier  < Pepe::Base
       modifier_regex = to_regex(modifier.expression)
       modifier_match = modifier_regex.match(expression)
       if modifier_match
-        modifier_class = "Pepe::Pepe#{modifier.modifier_type.camelize}".constantize
+        modifier_class = "Mauricio::Mauricio#{modifier.modifier_type.camelize}".constantize
         interaction_controller = modifier_class.new
         captures.merge!(interaction_controller.send(modifier.method))
       end
