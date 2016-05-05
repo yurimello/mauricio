@@ -1,24 +1,50 @@
-## README
+# Mauricio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Overview
+========
 
-Things you may want to cover:
+This is a prototype project that interact with user without any interface.
 
-* Ruby version
+It uses regex to get interaction and answer properly.
 
-* System dependencies
+Interactions can have parent interecation, to be able to use context in conversation.
 
-* Configuration
+It communicates with Chefsclub API to get restaurants lists and answer user when he asks where he can get chefsclub restaurant
 
-* Database creation
+It communicates with Youtube API when users asks for a video or music
 
-* Database initialization
+Its possible and very easy to implements any other api to mauricio get informations for user asks.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Try those intereactions with mauricio
+-----------------------
 
-* Deployment instructions
+- oi
+- quem é você?
+- onde vc mora?
+- vc trabalha?
+- quero ouvir uma musica
+- jantar com a namorada
+- quero um restaurante em jpa 
+- quero comer burritos na barra 
 
-* ...
+
+Whats missing
+-----------------------
+
+* API for chats like slack, hipchat etc
+* Implements core engine like gem
+* Implements channel for each user instance
+* Unit specs
+
+
+Run on Mac OSX
+-------------------------------
+
+- `brew install redis`
+- `git clone https://github.com/yurimello/mauricio.git`
+- `cd mauricio`
+- `bundle install`
+- `rake db:create && rake db:migrate && rake db:seed`
+- `redis-server`
+- `rails s`

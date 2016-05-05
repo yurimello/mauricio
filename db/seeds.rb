@@ -1,13 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 Message.delete_all
 Interaction.delete_all
-Interaction.create question: '^oi!?$', answer: 'olá! Por favor, me informe o seu cpf para eu poder te atender melhor.', question_type: 'chefsclub_configuration'
+parent_1 = Interaction.create question: '^oi!?$', answer: 'olá! tudo bem?', question_type: 'basic_answer'
+Interaction.create question: 'n(a|ã)?o?', answer: 'D: bota um sorriso nessa cara, meu amigo.', question_type: 'basic_answer', parent_id: parent_1.id
+parent_2 = Interaction.create question: 'tu?do?( sim\.?)? ?e (com )?vo?c(e|ê)?/?', answer: 'tudo otimo. qual o seu nome?', question_type: 'basic_answer', parent_id: parent_1.id
+parent_3 = Interaction.create question: 'tu?do?', answer: 'que bom. qual o seu nome?', question_type: 'basic_answer', parent_id: parent_1.id
+Interaction.create question: '.*', answer: 'Muito prazer', question_type: 'basic_answer', parent_id: parent_2.id
+Interaction.create question: '.*', answer: 'Muito prazer', question_type: 'basic_answer', parent_id: parent_3.id
 Interaction.create question: '^(qm|quem) (e|é|eh) (vc|voc[eê])\??$', answer: 'Eu sou o Mauricio!', question_type: 'basic_answer'
 Interaction.create question: '^a?onde (vc|voc[eê]) (vive|mora)\??$', answer: 'Na matrix', question_type: 'basic_answer'
 Interaction.create question: '^(vc|voc[eê]) (vive|mora) a?onde\??$', answer: 'Na matrix', question_type: 'basic_answer'
@@ -24,6 +22,7 @@ parent = Interaction.create question: '((ql|qual) )?a resposta pa?ra (a )?vida,?
 Interaction.create question: '^42\??$', answer: 'Sim! Quem me disse foi o Pensador Profundo', question_type: 'basic_answer'
 Interaction.create question: '.*restaurante(\s(no|na|em)\s)([a-zA-Z]+)', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api', captures: {"3" => 'neighborhood'}
 Interaction.create question: '.*restaurante', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
+Interaction.create question: 'jantar', answer: 'hmmm voce quer um restaurante', question_type: 'chefsclub_restaurant_api'
 Interaction.create question: '.*(musica|video)', answer: 'hmmm voce quer um video', question_type: 'youtube'
 parent = Interaction.create question: '.*minha assinatura (es)?ta valida\??', answer: 'me diga o seu cpf para eu poder verificar', question_type: 'chefsclub_subscription_information'
 Interaction.create question: '.*(\d{11}).*', answer: 'esta valida sim', question_type: 'chefsclub_subscription_information', parent_id: parent.id, captures: {"1" => 'identification'}
@@ -35,6 +34,7 @@ Chefsclub::NeighborhoodSlang.create slang: "barra", translated: "Barra da Tijuca
 Chefsclub::NeighborhoodSlang.create slang: "recreio", translated: "Recreio dos Bandeirantes"
 Chefsclub::NeighborhoodSlang.create slang: "jpa", translated: "Jacarepagua"
 Chefsclub::NeighborhoodSlang.create slang: "jb", translated: "Jardim Botanico"
+Chefsclub::NeighborhoodSlang.create slang: "copa", translated: "Copacabana"
 
 Chefsclub::CuisineSlang.delete_all
 Chefsclub::CuisineSlang.create slang: "japones", translated: "japonesa"
@@ -78,13 +78,13 @@ Modifier.create expression: 'sexta(-feira)?', modifier_type: 'time', method: 'fr
 Modifier.create expression: 'sabado', modifier_type: 'time', method: 'saturday'
 Modifier.create expression: 'domingo', modifier_type: 'time', method: 'sunday'
 
-Modifier.create expression: '(um|1) restaurante', modifier_type: 'integer', method: 'one'
-Modifier.create expression: '(dois|2) restaurantes', modifier_type: 'integer', method: 'two'
-Modifier.create expression: '(tres|3) restaurantes', modifier_type: 'integer', method: 'three'
-Modifier.create expression: '(quatro|4) restaurantes', modifier_type: 'integer', method: 'four'
-Modifier.create expression: '(cinco|5) restaurantes', modifier_type: 'integer', method: 'five'
-Modifier.create expression: '(seis|6) restaurantes', modifier_type: 'integer', method: 'six'
-Modifier.create expression: '(sete|7) restaurantes', modifier_type: 'integer', method: 'seven'
-Modifier.create expression: '(oito|8) restaurantes', modifier_type: 'integer', method: 'eight'
-Modifier.create expression: '(nove|9) restaurantes', modifier_type: 'integer', method: 'nine'
-Modifier.create expression: '(dez|10) restaurantes', modifier_type: 'integer', method: 'ten'
+# Modifier.create expression: '(um|1) restaurante', modifier_type: 'integer', method: 'one'
+# Modifier.create expression: '(dois|2) restaurantes', modifier_type: 'integer', method: 'two'
+# Modifier.create expression: '(tres|3) restaurantes', modifier_type: 'integer', method: 'three'
+# Modifier.create expression: '(quatro|4) restaurantes', modifier_type: 'integer', method: 'four'
+# Modifier.create expression: '(cinco|5) restaurantes', modifier_type: 'integer', method: 'five'
+# Modifier.create expression: '(seis|6) restaurantes', modifier_type: 'integer', method: 'six'
+# Modifier.create expression: '(sete|7) restaurantes', modifier_type: 'integer', method: 'seven'
+# Modifier.create expression: '(oito|8) restaurantes', modifier_type: 'integer', method: 'eight'
+# Modifier.create expression: '(nove|9) restaurantes', modifier_type: 'integer', method: 'nine'
+# Modifier.create expression: '(dez|10) restaurantes', modifier_type: 'integer', method: 'ten'
